@@ -46,6 +46,14 @@ def main(argv):  #organismPath, output_dir, trainingFlag, INSTALLATION_DIR, eval
     # in future support other types
     input_file = seqio_filter.SeqioFilter(SeqIO.parse(args_parser.infile, "genbank"))
     args_parser.record = input_file
+
+    for entry in input_file:
+        for feature in entry.get_features('CDS'):
+            print(feature.location)
+    exit()
+
+
+
     if not args_parser.output_dir:
         sys.stderr.write("ERROR: Output directory (-o) is required\n")
         sys.exit(-1)
