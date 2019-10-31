@@ -18,81 +18,16 @@ FEATURES             Location/Qualifiers
                      /db_xref="taxon:83333"
      CDS             3..98
                      /product="tRNA:Cm32/Um32 methyltransferase"
-                     /db_xref="RAST2:fig|83333.998.peg.1"
-                     /note="rasttk_feature_creation_tool=prodigal"
-                     /note="rasttk_feature_annotation_tool=annotate_proteins_km
-                     er_v1"
                      /transl_table=11
-                     /translation="LFILTATGNMSLCGLKKECLIAASELVTCRE"
      CDS             4634265..4635689
-                     /db_xref="RAST2:fig|83333.998.peg.4548"
                      /product="Sensory histidine kinase CreC of two-component
                      signal transduction system CreBC"
-                     /transl_table=11
-                     /note="rasttk_feature_creation_tool=prodigal"
-                     /note="rasttk_feature_annotation_tool=annotate_proteins_km
-                     er_v2"
-                     /translation="MRIGMRLLLGYFLLVAVAAWFVLAIFVKEVKPGVRRATEGTLIDT
-                     ATLLAELARPDLLSGDPTHGQLAQAFNQLQHRPFRANIGGINKVRNEYHVYMTDAQGKV
-                     LFDSANKAVGQDYSRWNDVWLTLRGQYGARSTLQNPADPESSVMYVAAPIMDGSRLIGV
-                     LSVGKPNAAMAPVIKRSERRILWASAILLGIALVIGAGMVWWINRSIARLTRYADSVTD
-                     NKPVPLPDLGSSELRKLAQALESMRVKLEGKNYIEQYVYALTHELKSPLAAIRGAAEIL
-                     REGPPPEVVARFTDNILTQNARMQALVETLLRQARLENRQEVVLTAVDVAALFRRVSEA
-                     RTVQLAEKKITLHVTPTEVNVAAEPALLEQALGNLLDNAIDFTPESGCITLSAEVDQEH
-                     VTLKVLDTGSGIPDYALSRIFERFYSLPRANGQKSSGLGLAFVSEVARLFNGEVTLRNV
-                     QEGGVLASLRLHRHFT"
      CDS             337..2799
-                     /transl_table=11
-                     /EC_number="2.7.2.4"
-                     /EC_number="1.1.1.3"
-                     /note="rasttk_feature_creation_tool=prodigal"
-                     /note="rasttk_feature_annotation_tool=annotate_proteins_km
-                     er_v2"
-                     /translation="MRVLKFGGTSVANAERFLRVADILESNARQGQVATVLSAPAKITN
-                     HLVAMIEKTISGQDALPNISDAERIFAELLTGLAAAQPGFPLAQLKTFVDQEFAQIKHV
-                     LHGISLLGQCPDSINAALICRGEKMSIAIMAGVLEARGHNVTVIDPVEKLLAVGHYLES
-                     TVDIAESTRRIAASRIPADHMVLMAGFTAGNEKGELVVLGRNGSDYSAAVLAACLRADC
-                     CEIWTDVDGVYTCDPRQVPDARLLKSMSYQEAMELSYFGAKVLHPRTITPIAQFQIPCL
-                     IKNTGNPQAPGTLIGASRDEDELPVKGISNLNNMAMFSVSGPGMKGMVGMAARVFAAMS
-                     RARISVVLITQSSSEYSISFCVPQSDCVRAERAMQEEFYLELKEGLLEPLAVTERLAII
-                     SVVGDGMRTLRGISAKFFAALARANINIVAIAQGSSERSISVVVNNDDATTGVRVTHQM
-                     LFNTDQVIEVFVIGVGGVGGALLEQLKRQQSWLKNKHIDLRVCGVANSKALLTNVHGLN
-                     LENWQEELAQAKEPFNLGRLIRLVKEYHLLNPVIVDCTSSQAVADQYADFLREGFHVVT
-                     PNKKANTSSMDYYHQLRYAAEKSRRKFLYDTNVGAGLPVIENLQNLLNAGDELMKFSGI
-                     LSGSLSYIFGKLDEGMSFSEATTLAREMGYTEPDPRDDLSGMDVARKLLILARETGREL
-                     ELADIEIEPVLPAEFNAEGDVAAFMANLSQLDDLFAARVAKARDEGKVLRYVGNIDEDG
-                     VCRVKIAEVDGNDPLFKVKNGENALAFYSHYYQPLPLVLRGYGAGNDVTAAGVFADLLR
-                     TLSWKLGV"
-                     /db_xref="RAST2:fig|83333.998.peg.2"
                      /product="Aspartokinase (EC 2.7.2.4) / Homoserine
                      dehydrogenase (EC 1.1.1.3)"
      CDS             join(2901..3000,3003..3733)
-                     /transl_table=11
-                     /EC_number="2.7.1.39"
-                     /note="rasttk_feature_creation_tool=prodigal"
-                     /note="rasttk_feature_annotation_tool=annotate_proteins_km
-                     er_v2"
-                     /translation="MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEAAETFS
-                     LNNLGRFADKLPSEPRENIVYQCWERFCQELGKQIPVAMTLEKNMPIGSGLGSSACSVV
-                     AALMAMNEHCGKPLNDTRLLALMGELEGRISGSIHYDNVAPCFLGGMQLMIEENDIISQ
-                     QVPGFDEWLWVLAYPGIKVSTAEARAILPAQYRRQDCIAHGRHLAGFIHACYSRQPELA
-                     AKLMKDVIAEPYRERLLPGFRQARQAVAEIGAVASGISGSGPTLFALCDKPETAQRVAD
-                     WLGKNYLQNQEGFVHICRLDTAGARVLEN"
-                     /db_xref="RAST2:fig|83333.998.peg.3"
                      /product="Homoserine kinase (EC 2.7.1.39)"
      CDS             join(2801..3000,3003..3733)
-                     /transl_table=11
-                     /EC_number="2.7.1.39"
-                     /note="rasttk_feature_creation_tool=prodigal"
-                     /note="rasttk_feature_annotation_tool=annotate_proteins_km
-                     er_v2"
-                     /translation="MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEAAETFS
-                     LNNLGRFADKLPSEPRENIVYQCWERFCQELGKQIPVAMTLEKNMPIGSGLGSSACSVV
-                     AALMAMNEHCGKPLNDTRLLALMGELEGRISGSIHYDNVAPCFLGGMQLMIEENDIISQ
-                     QVPGFDEWLWVLAYPGIKVSTAEARAILPAQYRRQDCIAHGRHLAGFIHACYSRQPELA
-                     AKLMKDVIAEPYRERLLPGFRQARQAVAEIGAVASGISGSGPTLFALCDKPETAQRVAD
-                     WLGKNYLQNQEGFVHICRLDTAGARVLEN"
-                     /db_xref="RAST2:fig|83333.998.peg.3"
                      /product="Homoserine kinase (EC 2.7.1.39)"
 ORIGIN
 //
