@@ -59,12 +59,12 @@ class SeqioFilter( list ):
         return self[self.get_n[id]]
 
     def distance_between(self, locations):
-        return 111
+        return -(locations[0].end - locations[1].start)
 
     def merge_or_split(self, feature):
         cutoff_distance = 100
-        feature.location_operator = None
 
+        feature.location_operator = None
         if self.distance_between(feature.location.parts) < cutoff_distance:
             #do merging stuff here
             return None
@@ -86,7 +86,7 @@ class SeqioFilter( list ):
         for feature in target.features:
             if feature.location_operator == 'join':
                 new_features.append(self.merge_or_split(feature))
-        target.features.extend(new_features)
+        target.features.extend(filter(None, new_features))
 
         # sort the features based on their location in the genome 
         target.features.sort( key = lambda feature : tuple([min(feature.location.start, feature.location.end),  max(feature.location.start, feature.location.end)]) )
