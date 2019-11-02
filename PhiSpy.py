@@ -49,7 +49,7 @@ def main(argv):  #organismPath, output_dir, trainingFlag, INSTALLATION_DIR, eval
 
     for entry in input_file:
         for feature in entry.get_features('CDS'):
-            print(feature.location)
+            print(feature.location, feature.qualifiers['product'])
     exit()
 
 

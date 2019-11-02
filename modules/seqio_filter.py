@@ -1,4 +1,5 @@
 import types
+from Bio import SeqFeature
 from copy import copy
 
 
@@ -62,18 +63,37 @@ class SeqioFilter( list ):
         return -(locations[0].end - locations[1].start)
 
     def merge_or_split(self, feature):
-        cutoff_distance = 100
+        cutoff_distance                  = 100
+        feature.location_operator        = None
+        feature.qualifiers['product'][0] = 'Merged-or-split: ' + feature.qualifiers['product'][0]
+        mor_features                     = []
+        last_part_start                  = feature.location.parts[0].start
+        last_part_end                    = feature.location.parts[0].end
 
-        feature.location_operator = None
-        if self.distance_between(feature.location.parts) < cutoff_distance:
-            #do merging stuff here
-            return None
-        else:
-            #do splitting stuff here
-            feature_copy = copy(feature)
-            return feature_copy
-    
- 
+        for i in range(len(feature.location.parts) - 1):
+            if self.distance_between(feature.location.parts[i : i+2]) < cutoff_distance:
+                # do merging stuff here
+                last_part_end = feature.location.parts[i + 1].end
+            else:
+                #do splitting stuff here
+                if last_part_end == feature.location.parts[i].end: 
+                    nf = SeqFeature.SeqFeature(location = SeqFeature.FeatureLocation(last_part_start, last_part_end), 
+                                               strand = feature.location.strand, 
+                                               type = feature.type, 
+                                               qualifiers = feature.qualifiers)
+                    mor_features.append(nf)
+                    last_part_start = feature.location.parts[i + 1].start
+                else:
+                    last_part_start = feature.location.parts[i].start
+                last_part_end = feature.location.parts[i + 1].end
+        nf = SeqFeature.SeqFeature(location = SeqFeature.FeatureLocation(last_part_start, last_part_end), 
+                                   strand = feature.location.strand, 
+                                   type = feature.type, 
+                                   qualifiers = feature.qualifiers)
+        mor_features.append(nf)
+
+        return mor_features
+
     def attach_methods(self, target):
         """This method allows attaching new methods to the SeqIO entry object
 
@@ -85,8 +105,10 @@ class SeqioFilter( list ):
         new_features = []
         for feature in target.features:
             if feature.location_operator == 'join':
-                new_features.append(self.merge_or_split(feature))
-        target.features.extend(filter(None, new_features))
+                new_features.extend(self.merge_or_split(feature))
+            else:
+                new_features.append(feature)
+        target.features = new_features
 
         # sort the features based on their location in the genome 
         target.features.sort( key = lambda feature : tuple([min(feature.location.start, feature.location.end),  max(feature.location.start, feature.location.end)]) )
