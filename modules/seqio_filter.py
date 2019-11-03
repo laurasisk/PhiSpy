@@ -77,19 +77,15 @@ class SeqioFilter( list ):
             else:
                 #do splitting stuff here
                 if last_part_end == feature.location.parts[i].end: 
-                    nf = SeqFeature.SeqFeature(location = SeqFeature.FeatureLocation(last_part_start, last_part_end), 
-                                               strand = feature.location.strand, 
-                                               type = feature.type, 
-                                               qualifiers = feature.qualifiers)
+                    nf = copy(feature)
+                    nf.location = SeqFeature.FeatureLocation(last_part_start, last_part_end, feature.strand)
                     mor_features.append(nf)
                     last_part_start = feature.location.parts[i + 1].start
                 else:
                     last_part_start = feature.location.parts[i].start
                 last_part_end = feature.location.parts[i + 1].end
-        nf = SeqFeature.SeqFeature(location = SeqFeature.FeatureLocation(last_part_start, last_part_end), 
-                                   strand = feature.location.strand, 
-                                   type = feature.type, 
-                                   qualifiers = feature.qualifiers)
+        nf = copy(feature)
+        nf.location = SeqFeature.FeatureLocation(last_part_start, last_part_end, feature.strand)
         mor_features.append(nf)
 
         return mor_features
@@ -102,13 +98,15 @@ class SeqioFilter( list ):
         """
 
         # if feature has a complex location then merge or split it
-        new_features = []
+        new_features    = []
+        joined_features = []
         for feature in target.features:
             if feature.location_operator == 'join':
                 new_features.extend(self.merge_or_split(feature))
-            else:
-                new_features.append(feature)
-        target.features = new_features
+                joined_features.append(feature)
+        for feature in joined_features:
+            target.features.remove(feature)
+        target.features.extend(new_features)
 
         # sort the features based on their location in the genome 
         target.features.sort( key = lambda feature : tuple([min(feature.location.start, feature.location.end),  max(feature.location.start, feature.location.end)]) )
